@@ -76,7 +76,6 @@ public class CompanyController {
     }
 
     @DeleteMapping("/companies/{id}")
-    @CacheEvict(value = "companies", allEntries = true)
     public ResponseEntity<CompanyDTO> deleteCompany(@PathVariable(value = "id") Long companyId)
             throws ResourceNotFoundException {
         LOGGER.info("start get company by id!");
