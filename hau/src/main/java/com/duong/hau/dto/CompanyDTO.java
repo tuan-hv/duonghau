@@ -3,8 +3,7 @@ package com.duong.hau.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +13,7 @@ public class CompanyDTO {
     private String address;
     private int status;
 
-    private Set<EmployeeDTO> listEmployee = new HashSet<>();
+    private List<EmployeeDTO> listEmployee;
 
     public CompanyDTO(String companyName, String address, int status) {
         this.companyName = companyName;

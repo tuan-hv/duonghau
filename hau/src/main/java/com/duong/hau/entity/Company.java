@@ -4,8 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "company")
@@ -14,7 +13,7 @@ import java.util.Set;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long companyId;
 
     @Column(name = "company_name", nullable = false)
     private String companyName;
@@ -24,6 +23,7 @@ public class Company {
     private int status;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "company")
-    private Set<Employee> listEmployee = new HashSet<>();
+    private List<Employee> listEmployee;
+
 
 }

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/api/v2")
+@RequestMapping("/api/v1")
 public class EmployeeController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CompanyController.class);

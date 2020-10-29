@@ -47,7 +47,7 @@ public class CompanyService {
     public Optional<CompanyDTO> createCompany(CompanyDTO companyDTO) {
         try{
             Company employeeUpdate = companyRepository.save(CompanyConvert.convertCompanyToCompanyDTO(companyDTO));
-            companyDTO.setId(employeeUpdate.getId());
+            companyDTO.setId(employeeUpdate.getCompanyId());
             LOGGER.info("save company success!");
             return Optional.of(companyDTO);
         }

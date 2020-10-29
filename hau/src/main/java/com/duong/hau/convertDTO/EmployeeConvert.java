@@ -9,7 +9,7 @@ public class EmployeeConvert {
     public static EmployeeDTO convertEmployeeToEmployeeDTO(Employee employee){
         EmployeeDTO employeeDTO = new EmployeeDTO();
 
-        employeeDTO.setId(employee.getId());
+        employeeDTO.setId(employee.getEmployeeId());
         employeeDTO.setFirstName(employee.getFirstName());
         employeeDTO.setLastName(employee.getLastName());
         employeeDTO.setEmail(employee.getEmail());
@@ -23,7 +23,7 @@ public class EmployeeConvert {
     public static Employee convertEmployeeDTOToEmployee(EmployeeDTO employeeDTO){
         Employee employee = new Employee();
 
-        employee.setId(employeeDTO.getId());
+        employee.setEmployeeId(employeeDTO.getId());
         employee.setFirstName(employeeDTO.getFirstName());
         employee.setLastName(employeeDTO.getLastName());
         employee.setEmail(employeeDTO.getEmail());

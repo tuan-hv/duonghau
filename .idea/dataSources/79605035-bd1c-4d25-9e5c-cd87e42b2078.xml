@@ -902,94 +902,155 @@
       <Host>localhost</Host>
     </user>
     <table id="286" parent="2" name="company"/>
-    <table id="287" parent="2" name="employees"/>
-    <column id="288" parent="286" name="id">
+    <table id="287" parent="2" name="department"/>
+    <table id="288" parent="2" name="department_employee"/>
+    <table id="289" parent="2" name="employees"/>
+    <column id="290" parent="286" name="company_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="286" name="address">
+    <column id="291" parent="286" name="address">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="286" name="company_name">
+    <column id="292" parent="286" name="company_name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="286" name="status">
+    <column id="293" parent="286" name="status">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="292" parent="286" name="PRIMARY">
+    <key id="294" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>company_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="293" parent="287" name="id">
+    <column id="295" parent="287" name="deparment_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="287" name="phone_number">
+    <column id="296" parent="287" name="department_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="287" name="address">
+    <column id="297" parent="287" name="mission">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="287" name="email_address">
+    <column id="298" parent="287" name="quality_people">
       <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="297" parent="287" name="first_name">
-      <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="298" parent="287" name="last_name">
-      <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="299" parent="287" name="status">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="300" parent="287" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>deparment_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="301" parent="288" name="employee_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="288" name="deparment_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="303" parent="288" name="FKdxuhmva5p1scsnmjg04ggl4aj">
+      <ColNames>employee_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="304" parent="288" name="FKh7fram1r02rpeaqhwg5aadd7w">
+      <ColNames>deparment_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <foreign-key id="305" parent="288" name="FKdxuhmva5p1scsnmjg04ggl4aj">
+      <ColNames>employee_id</ColNames>
+      <RefTableName>employees</RefTableName>
+      <RefColNames>employee_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="306" parent="288" name="FKh7fram1r02rpeaqhwg5aadd7w">
+      <ColNames>deparment_id</ColNames>
+      <RefTableName>department</RefTableName>
+      <RefColNames>deparment_id</RefColNames>
+    </foreign-key>
+    <column id="307" parent="289" name="employee_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="308" parent="289" name="address">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="309" parent="289" name="email_address">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="289" name="first_name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="311" parent="289" name="last_name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="312" parent="289" name="phone_number">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="313" parent="289" name="status">
       <Position>7</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="287" name="company_id">
+    <column id="314" parent="289" name="company_id">
       <Position>8</Position>
       <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="301" parent="287" name="FK3dtsl9h3lnbeeqds8rm23cwja">
+    <index id="315" parent="289" name="FK3dtsl9h3lnbeeqds8rm23cwja">
       <ColNames>company_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="302" parent="287" name="PRIMARY">
+    <key id="316" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>employee_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="303" parent="287" name="FK3dtsl9h3lnbeeqds8rm23cwja">
+    <foreign-key id="317" parent="289" name="FK3dtsl9h3lnbeeqds8rm23cwja">
       <ColNames>company_id</ColNames>
       <RefTableName>company</RefTableName>
-      <RefColNames>id</RefColNames>
+      <RefColNames>company_id</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>

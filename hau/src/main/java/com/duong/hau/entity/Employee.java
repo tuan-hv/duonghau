@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -14,12 +15,12 @@ import javax.persistence.*;
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	@Column(name = "first_name", nullable = false)
+	private long employeeId;
+	@Column(name = "first_name")
 	private String firstName;
-	@Column(name = "last_name", nullable = false)
+	@Column(name = "last_name")
 	private String lastName;
-	@Column(name = "email_address", nullable = false)
+	@Column(name = "email_address")
 	private String email;
 	@Column(name = "address")
 	private String address;
@@ -30,7 +31,13 @@ public class Employee {
 	private int status;
 
 	@ManyToOne
-	@JoinColumn(name = "company_id", nullable = false)
+	@JoinColumn(name = "company_id")
 	private Company company;
+
+	@ManyToMany(fetch = FetchType.LAZY,
+			cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH})
+	@JoinTable(name = "department_employee", joinColumns = @JoinColumn(name = "employee_id"),
+			inverseJoinColumns = @JoinColumn(name = "deparment_id"))
+	private List<Department> department;
 
 }

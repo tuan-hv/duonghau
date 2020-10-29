@@ -60,7 +60,7 @@ public class EmployeeService {
             Employee employee =  EmployeeConvert.convertEmployeeDTOToEmployee(employeeDTO);
             employee.setCompany(company.get());
             Employee employeeUpdate = employeeRepository.save(employee);
-            employeeDTO.setId(employeeUpdate.getId());
+            employeeDTO.setId(employeeUpdate.getEmployeeId());
             LOGGER.info("save company success!");
             return employeeDTO;
         }
@@ -72,7 +72,7 @@ public class EmployeeService {
     public boolean updateEmployee (EmployeeDTO employeeDTO){
         try{
             Optional<Employee> employee = employeeRepository.findById(employeeDTO.getId());
-            employee.get().setId(employeeDTO.getId());
+            employee.get().setEmployeeId(employeeDTO.getId());
             employee.get().setFirstName(employeeDTO.getFirstName());
             employee.get().setLastName(employeeDTO.getLastName());
             employee.get().setStatus(employeeDTO.getStatus());
