@@ -3,8 +3,10 @@ package com.duong.hau.service;
 import com.duong.hau.convertDTO.CompanyConvert;
 import com.duong.hau.convertDTO.EmployeeConvert;
 import com.duong.hau.dto.CompanyDTO;
+import com.duong.hau.dto.DepartmentDTO;
 import com.duong.hau.dto.EmployeeDTO;
 import com.duong.hau.entity.Company;
+import com.duong.hau.entity.Department;
 import com.duong.hau.entity.Employee;
 import com.duong.hau.repository.CompanyRepository;
 import com.duong.hau.repository.EmployeeRepository;
@@ -116,4 +118,6 @@ public class EmployeeService {
             return null;
         }
     }
+
+
 }
