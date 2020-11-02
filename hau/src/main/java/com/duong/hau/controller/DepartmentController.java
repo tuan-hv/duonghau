@@ -61,6 +61,8 @@ public class DepartmentController {
 
     @DeleteMapping("/department/{id}")
     public ResponseEntity<APIResponse<Boolean>> deleteDepartment(@PathVariable(value =  "id") Long departmentId){
+		LOGGER.info("Deleting. . .");
         return ResponseEntity.ok(new APIResponse(HttpStatus.OK.value(), "delete by id", departmentService.deleteDepartment(departmentId)));
     }
+	
 }
